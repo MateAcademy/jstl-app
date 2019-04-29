@@ -29,7 +29,7 @@ public class Hello2Servlet extends HttpServlet {
         System.out.println("мы заходим на сайт под именем:  " + firstName + " и паролем:  " + login);
 
         User user = new User(firstName, login);
-        UserRegistated userRegistated = new UserRegistated();
+        UserRegistrated1 userRegistated = new UserRegistrated1();
         userRegistated.getList();
         boolean rez = userRegistated.proverka(user);
         System.out.println("Это проверка, есть ли такой пользователь в базе данных: " + rez);

@@ -1,13 +1,20 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" build-on-make="true" name="jstl-app:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/jstl_app_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/jstl-1.0-SNAPSHOT</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="jstl-app/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="jstl-app" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.38" />
+        </element>
       </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/jstl-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="jstl-app/web/Web" />
     </root>
   </artifact>
 </component>

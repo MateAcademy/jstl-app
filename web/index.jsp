@@ -18,7 +18,7 @@
 
 <body  style="background-image:url(girl.jpg)">
 
-<form action="hello" method="post">
+<form action ="hello" method="post">
   <h3> Пройдите регистрацию:</h3>
   <p>Имя <input type="text" name="name" value="Введите свое имя">
     Пароль <input type="text" name="login"  value="Введите пароль"></p>
@@ -34,22 +34,7 @@
   <input type="submit" value="Войти" class="b1">
 </form>
 
-<%-- <br>
- <form action="hello3" method="post">
- <select multiple name = "professional" size="3" >
- <option>Инженер</option>
- <option>кассир</option>
- <option>разработчик</option>
- </select>
- <input type="submit">
- </form>--%>
 
-<%!
-  int x = 2;
-%>
-
-
-My global value = <%= x %>
 
 
 </body>

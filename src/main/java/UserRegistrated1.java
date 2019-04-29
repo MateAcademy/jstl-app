@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRegistated {     //Strage
+public class UserRegistrated1 {     //Strage
     private static final List<User> list = new ArrayList<User>();
 
     void addNewUsers(User alone) {
