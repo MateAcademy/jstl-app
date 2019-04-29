@@ -5,6 +5,7 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="jstl-app" />
+          <element id="module-output" name="jstl" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
@@ -15,6 +16,7 @@
         <element id="file-copy" path="$PROJECT_DIR$/target/jstl-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="jstl-app/web/Web" />
+      <element id="javaee-facet-resources" facet="jstl/web/Web" />
     </root>
   </artifact>
 </component>

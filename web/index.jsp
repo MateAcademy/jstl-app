@@ -32,10 +32,20 @@
   <p>Имя <input type="text" name="name2" value="Введите свое имя">
     Пароль <input type="text" name="login2"  value="Введите пароль"></p>
   <input type="submit" value="Войти" class="b1">
+
+
+
+    <br>
+    <%
+
+        int a =56;
+        int b = 3;
+        out.print(a+b);
+
+    %>
+
+
 </form>
-
-
-
 
 </body>
 </html>
