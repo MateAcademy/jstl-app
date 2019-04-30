@@ -11,9 +11,10 @@
 <head charset=\"utf-8\">
     <title>Web application Мэйт Академии</title>
 </head>
-<body style="background-image:url(girl.jpg)">
+<body style="background-image:url(girl.jpg); color:#ff6c36">
 
-You already have account, just sign in
-
+        You already have account, just sign in <br>
+Твое имя пользователя уже есть в базе: <%=request.getAttribute("name")%><br>
+И твой логин тоже уже зарегистрирован : <%=request.getAttribute("login")%><br>
 </body>
 </html>

@@ -16,7 +16,6 @@
 <h3>
     Привет, твой пароль:  <%=request.getAttribute("login")%>  после регистрации :) <br>
     session account:   <%=request.getAttribute("sessionUser")%> <br>
-
 </h3>
 
 </body>

@@ -35,6 +35,8 @@ public class HelloServlet extends HttpServlet {
         boolean reg = UserRegistrated1.proverka(alone);
 
         if (reg) {
+            req.setAttribute("name", firstName);
+            req.setAttribute("login", login);
             req.getRequestDispatcher("1.jsp").forward(req, resp);
 
         } else {
@@ -71,7 +73,8 @@ public class HelloServlet extends HttpServlet {
             }
         }
 
-//        req.getRequestDispatcher("afterRegister.jsp").forward(req, resp);
-//        resp.sendRedirect("http://gogle.com");  //это редирект
+//        req.getRequestDispatcher("afterRegister.jsp").forward(req, resp); //куда какие страницы отправлять, куда какие запросы показывать
+//          resp.sendRedirect("afterRegister.jsp")
+//        resp.sendRedirect("http://gogle.com");  //это редирект, без всякой обработки отпраивить
     }
 }

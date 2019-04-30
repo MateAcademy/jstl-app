@@ -45,9 +45,9 @@ public class Hello2Servlet extends HttpServlet {
 
             req.setAttribute("login", login);
             req.setAttribute("sessionUser", session.getAttribute("sessionUser"));
-            req.getRequestDispatcher("afterRegister3.jsp").forward(req, resp);
+            req.getRequestDispatcher("3.jsp").forward(req, resp);
         } else {
-            req.getRequestDispatcher("afterRegister4.jsp").forward(req, resp);
+            req.getRequestDispatcher("4.jsp").forward(req, resp);
         }
     }
 }
