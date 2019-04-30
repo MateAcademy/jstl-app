@@ -15,14 +15,14 @@ public class Registration {
             System.out.println(u);
     }
 
-    public static boolean proverka(User alone) {
+    public static boolean checkUser(User alone) {
         if (list.contains(alone)) {
             return true;
         }
         return false;
     }
 
-    public static String nameLastUsera() {
+    public static String userLastName() {
         int l = list.size();
         User user = list.get(l - 1);
         String name = user.getName();

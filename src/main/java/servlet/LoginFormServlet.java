@@ -11,10 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(value = "/hello2", loadOnStartup = 2) //это значение ссылки по которой сервлет срабатывает
-public class Hello2Servlet extends HttpServlet {
+public class LoginFormServlet extends HttpServlet {
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -35,7 +34,7 @@ public class Hello2Servlet extends HttpServlet {
         User user = new User(firstName, login);
         Registration userRegistated = new Registration();
         userRegistated.getList();
-        boolean rez = userRegistated.proverka(user);
+        boolean rez = userRegistated.checkUser(user);
         System.out.println("Это проверка, есть ли такой пользователь в базе данных: " + rez);
         System.out.println();
         if (rez == true) {
