@@ -1,11 +1,9 @@
 package model;
 
-import model.User;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Registration {     //Strage
+public class Registration {
     private static final List<User> list = new ArrayList<User>();
 
     public void addNewUsers(User alone) {
@@ -26,7 +24,7 @@ public class Registration {     //Strage
 
     public static String nameLastUsera() {
         int l = list.size();
-        User user = list.get(l-1);
+        User user = list.get(l - 1);
         String name = user.getName();
         return name;
     }

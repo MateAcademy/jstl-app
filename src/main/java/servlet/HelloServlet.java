@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet( value = "/hello", loadOnStartup = 1) //при преходе на хелло срабатывает метод сервис
+@WebServlet(value = "/hello", loadOnStartup = 1) //при преходе на хелло срабатывает метод сервис
 public class HelloServlet extends HttpServlet {
 
     private static final UserDao userDao = new UserDao();
@@ -52,7 +52,7 @@ public class HelloServlet extends HttpServlet {
 
             if (session.getAttribute("sessionUser") == null) {
                 session.setAttribute("sessionUser", name);
-                servletContext.setAttribute("name", name );
+                servletContext.setAttribute("name", name);
             }
 
             userRegistated.addNewUsers(newUser);
@@ -83,8 +83,5 @@ public class HelloServlet extends HttpServlet {
             }
         }
 
-//        req.getRequestDispatcher("afterRegister.jsp").forward(req, resp); //куда какие страницы отправлять, куда какие запросы показывать
-//          resp.sendRedirect("afterRegister.jsp")
-//        resp.sendRedirect("http://gogle.com");  //это редирект, без всякой обработки отпраивить
     }
 }

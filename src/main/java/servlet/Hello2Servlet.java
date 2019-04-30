@@ -27,7 +27,6 @@ public class Hello2Servlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html");       //даем понять браузеру что ему приходит не картинка не видео не джейсон
         resp.setCharacterEncoding("UTF-8");
-        PrintWriter out = resp.getWriter();  //это мы запрос печатаем на странице
 
         String firstName = req.getParameter("name2");
         String login = req.getParameter("login2");
@@ -40,14 +39,6 @@ public class Hello2Servlet extends HttpServlet {
         System.out.println("Это проверка, есть ли такой пользователь в базе данных: " + rez);
         System.out.println();
         if (rez == true) {
-//            out.print("<html> " +
-//                    "  <head charset=\"utf-8\">\n" +
-//                    "    <title>Web application Мэйт Академии</title>\n" +
-//                    "  </head>\n" +
-//                    "  <body style=\"background-image:url(girl.jpg)\">\n </html>" +
-//                    "Привет: login: #" + login + "#<br></h3>");
-//            out.println("session account: " + session.getAttribute("sessionUser"));
-
             req.setAttribute("login", login);
             req.setAttribute("sessionUser", session.getAttribute("sessionUser"));
             req.getRequestDispatcher("3.jsp").forward(req, resp);
