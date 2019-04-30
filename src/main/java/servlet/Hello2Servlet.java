@@ -1,3 +1,8 @@
+package servlet;
+
+import model.User;
+import model.Registration;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,7 +34,7 @@ public class Hello2Servlet extends HttpServlet {
         System.out.println("мы заходим на сайт под именем:  " + firstName + " и паролем:  " + login);
 
         User user = new User(firstName, login);
-        UserRegistrated1 userRegistated = new UserRegistrated1();
+        Registration userRegistated = new Registration();
         userRegistated.getList();
         boolean rez = userRegistated.proverka(user);
         System.out.println("Это проверка, есть ли такой пользователь в базе данных: " + rez);

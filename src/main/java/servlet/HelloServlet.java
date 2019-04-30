@@ -1,3 +1,9 @@
+package servlet;
+
+import dao.UserDao;
+import model.User;
+import model.Registration;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +17,7 @@ import java.io.PrintWriter;
 @WebServlet( value = "/hello", loadOnStartup = 1) //при преходе на хелло срабатывает метод сервис
 public class HelloServlet extends HttpServlet {
 
+    private static final UserDao userDao = new UserDao();
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -18,34 +25,37 @@ public class HelloServlet extends HttpServlet {
         resp.setContentType("text/html");       //даем понять браузеру что ему приходит не картинка не видео не джейсон
         resp.setCharacterEncoding("UTF-8");
 
-        UserRegistrated1 userRegistated = new UserRegistrated1();
+        Registration userRegistated = new Registration();
 
         HttpSession session = req.getSession();
         ServletContext servletContext = req.getServletContext();
 
         PrintWriter out = resp.getWriter();  //это мы запрос печатаем на странице
 
-        String firstName = req.getParameter("name");
-        String login = req.getParameter("login");
+        String name = req.getParameter("name");
+        String password = req.getParameter("password");
 
-        System.out.println("Имя: " + firstName);
-        System.out.println("Пароль: " + login);
+        System.out.println("Имя: " + name);
+        System.out.println("Пароль: " + password);
 
-        User alone = new User(firstName, login);
-        boolean reg = UserRegistrated1.proverka(alone);
+        User newUser = new User(name, password);
+        boolean reg = Registration.proverka(newUser);
 
         if (reg) {
-            req.setAttribute("name", firstName);
-            req.setAttribute("login", login);
+            req.setAttribute("name", name);
+            req.setAttribute("login", password);
             req.getRequestDispatcher("1.jsp").forward(req, resp);
 
         } else {
+
+            userDao.addUser(newUser);
+
             if (session.getAttribute("sessionUser") == null) {
-                session.setAttribute("sessionUser", firstName);
-                servletContext.setAttribute("name", firstName );
+                session.setAttribute("sessionUser", name);
+                servletContext.setAttribute("name", name );
             }
 
-            userRegistated.addNewUsers(alone);
+            userRegistated.addNewUsers(newUser);
 
             resp.setStatus(HttpServletResponse.SC_OK);
 
@@ -59,8 +69,8 @@ public class HelloServlet extends HttpServlet {
                 }
 
                 req.setAttribute("agree", agree);
-                req.setAttribute("name", firstName);
-                req.setAttribute("login", login);
+                req.setAttribute("name", name);
+                req.setAttribute("login", password);
                 req.setAttribute("method", req.getMethod());
                 req.setAttribute("sessionUser", session.getAttribute("sessionUser"));
                 req.setAttribute("servletContext", servletContext.getAttribute("name"));

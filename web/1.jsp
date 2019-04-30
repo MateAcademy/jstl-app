@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Sergey
+  model.User: Sergey
   Date: 28.04.2019
   Time: 14:12
   To change this template use File | Settings | File Templates.
@@ -15,6 +15,6 @@
 
         You already have account, just sign in <br>
 Твое имя пользователя уже есть в базе: <c:out value="${name}"/><br>
-И твой логин тоже уже зарегистрирован : <c:out value="${login}"/><br>
+И твой пароль тоже уже зарегистрирован : <c:out value="${login}"/><br>
 </body>
 </html>

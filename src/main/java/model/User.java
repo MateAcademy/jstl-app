@@ -1,23 +1,29 @@
+package model;
+
 import java.util.Objects;
 
 public class User {
     private String name;
-    private String login;
+    private String password;
 
     public User(String name, String login) {
         this.name = name;
-        this.login = login;
+        this.password = login;
     }
 
     public String getName() {
         return name;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     @Override
     public String toString() {
         return "У нас есть пользователь:{" +
                 "имя='" + name + '\'' +
-                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 
@@ -27,12 +33,12 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return Objects.equals(name, user.name) &&
-                Objects.equals(login, user.login);
+                Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, login);
+        return Objects.hash(name, password);
     }
 }
 

@@ -1,10 +1,14 @@
+package model;
+
+import model.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRegistrated1 {     //Strage
+public class Registration {     //Strage
     private static final List<User> list = new ArrayList<User>();
 
-    void addNewUsers(User alone) {
+    public void addNewUsers(User alone) {
         list.add(alone);
     }
 
