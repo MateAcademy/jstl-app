@@ -28,8 +28,8 @@ public class HelloServlet extends HttpServlet {
         String firstName = req.getParameter("name");
         String login = req.getParameter("login");
 
-        System.out.println(firstName);
-        System.out.println(login);
+        System.out.println("Имя: " + firstName);
+        System.out.println("Пароль: " + login);
 
         User alone = new User(firstName, login);
         boolean reg = UserRegistrated1.proverka(alone);

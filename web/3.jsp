@@ -14,8 +14,8 @@
 <body style="background-image:url(girl.jpg);  color:#ff6c36; font-weight: normal ">
 
 <h3>
-    Привет, твой пароль:  <%=request.getAttribute("login")%>  после регистрации :) <br>
-    session account:   <%=request.getAttribute("sessionUser")%> <br>
+    Привет, твой пароль:  <c:out value="${login}"/> после регистрации :) <br>
+    session account:   <c:out value="${sessionUser}"/><br>
 </h3>
 
 </body>

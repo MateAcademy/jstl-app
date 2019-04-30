@@ -14,7 +14,7 @@
 <body style="background-image:url(girl.jpg); color:#ff6c36">
 
         You already have account, just sign in <br>
-Твое имя пользователя уже есть в базе: <%=request.getAttribute("name")%><br>
-И твой логин тоже уже зарегистрирован : <%=request.getAttribute("login")%><br>
+Твое имя пользователя уже есть в базе: <c:out value="${name}"/><br>
+И твой логин тоже уже зарегистрирован : <c:out value="${login}"/><br>
 </body>
 </html>
