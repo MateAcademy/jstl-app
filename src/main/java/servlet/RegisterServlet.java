@@ -17,16 +17,12 @@ import java.io.IOException;
 public class RegisterServlet extends HttpServlet {
 
     private static final UserDao userDao = new UserDao();
-    
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html");
         resp.setCharacterEncoding("UTF-8");
-        Registration registration = new Registration();
-
-        HttpSession session = req.getSession();
-        ServletContext servletContext = req.getServletContext();
 
         String name = req.getParameter("name");
         String password = req.getParameter("password");
@@ -35,40 +31,53 @@ public class RegisterServlet extends HttpServlet {
         boolean reg = Registration.checkUser(newUser);
 
         if (reg) {
-            req.setAttribute("name", name);
-            req.setAttribute("login", password);
-            req.getRequestDispatcher("1.jsp").forward(req, resp);
-
+            exist(req, resp, name, password);
         } else {
-            userDao.addUser(newUser);
-
-            if (session.getAttribute("sessionUser") == null) {
-                session.setAttribute("sessionUser", name);
-                servletContext.setAttribute("name", name);
-            }
-
-            registration.addNewUsers(newUser);
-
-            resp.setStatus(HttpServletResponse.SC_OK);
-
-            String agree = req.getParameter("agree");
-            if (agree == null) {
-                agree = "НЕТ";
-            }
-
-            req.setAttribute("agree", agree);
-            req.setAttribute("name", name);
-            req.setAttribute("login", password);
-            req.setAttribute("method", req.getMethod());
-            req.setAttribute("sessionUser", session.getAttribute("sessionUser"));
-            req.setAttribute("servletContext", servletContext.getAttribute("name"));
-
-            req.getRequestDispatcher("2.jsp").forward(req, resp);
-
-            session.setMaxInactiveInterval(60);
-            registration.getList();
-            System.out.println();
+            registry(req, resp, name, password, newUser);
         }
+    }
+
+    public void exist(HttpServletRequest req, HttpServletResponse resp, String name, String password) throws ServletException, IOException {
+        req.setAttribute("name", name);
+        req.setAttribute("login", password);
+        req.getRequestDispatcher("WhoExistInDatabase.jsp").forward(req, resp);
+
+    }
+
+    public void registry(HttpServletRequest req, HttpServletResponse resp, String name, String password, User newUser) throws ServletException, IOException {
+        Registration registration = new Registration();
+
+        HttpSession session = req.getSession();
+        ServletContext servletContext = req.getServletContext();
+
+        userDao.addUser(newUser);
+
+        if (session.getAttribute("sessionUser") == null) {
+            session.setAttribute("sessionUser", name);
+            servletContext.setAttribute("name", name);
+        }
+
+        registration.addNewUsers(newUser);
+
+        resp.setStatus(HttpServletResponse.SC_OK);
+
+        String agree = req.getParameter("agree");
+        if (agree == null) {
+            agree = "НЕТ";
+        }
+
+        req.setAttribute("agree", agree);
+        req.setAttribute("name", name);
+        req.setAttribute("login", password);
+        req.setAttribute("method", req.getMethod());
+        req.setAttribute("sessionUser", session.getAttribute("sessionUser"));
+        req.setAttribute("servletContext", servletContext.getAttribute("name"));
+
+        req.getRequestDispatcher("Register.jsp").forward(req, resp);
+
+        session.setMaxInactiveInterval(60);
+        registration.getList();
+        System.out.println();
     }
 
 }
