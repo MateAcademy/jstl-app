@@ -13,16 +13,13 @@ import java.util.List;
 
 @WebServlet(value = "/hello3")
 
-public class EditeDeliteServlet extends HttpServlet {
+public class EditDeliteServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         UserDao userDao = new UserDao();
         List<User> list = userDao.getUsers();
-
         request.setAttribute("users", list);
         request.getRequestDispatcher("EditDelete.jsp").forward(request, response);
     }
-
-
 }
