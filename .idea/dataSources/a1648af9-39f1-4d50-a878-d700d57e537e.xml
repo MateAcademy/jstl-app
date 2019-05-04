@@ -1110,28 +1110,51 @@
     </collation>
     <table id="278" parent="3" name="new_table"/>
     <table id="279" parent="3" name="password"/>
-    <table id="280" parent="3" name="users"/>
-    <column id="281" parent="278" name="name">
+    <table id="280" parent="3" name="users">
+      <Collation>utf8_general_ci</Collation>
+    </table>
+    <column id="281" parent="278" name="id">
       <Position>1</Position>
+      <DataType>bigint(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="282" parent="278" name="name">
+      <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="278" name="pasword">
-      <Position>2</Position>
-      <DataType>varchar(2555)|0s</DataType>
+    <column id="283" parent="278" name="password">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="279" name="column_1">
+    <index id="284" parent="278" name="id_UNIQUE">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="285" parent="278" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="286" parent="278" name="id_UNIQUE">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="287" parent="279" name="column_1">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="280" name="name">
+    <column id="288" parent="280" name="name">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="280" name="pasword">
+    <column id="289" parent="280" name="password">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>

@@ -17,10 +17,8 @@ public class EditServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String name = request.getParameter("name");
-        System.out.println();
-        System.out.println(name + " !!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
         request.setAttribute("name", name);
-        request.getRequestDispatcher("Edite.jsp").forward(request, response);
+        request.getRequestDispatcher("Edit.jsp").forward(request, response);
     }
 }

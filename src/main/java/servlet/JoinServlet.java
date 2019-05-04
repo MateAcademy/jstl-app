@@ -29,11 +29,11 @@ public class JoinServlet extends HttpServlet {
 
         User user = new User(firstName, login);
 
-        boolean rez = userDao.getUser(user);
+        boolean doesUserExist = userDao.getUser(user);
 
-        System.out.println("Это проверка, есть ли такой пользователь в базе данных: " + rez);
+        System.out.println("Это проверка, есть ли такой пользователь в базе данных: " + doesUserExist);
         System.out.println();
-        if (rez == true) {
+        if (doesUserExist == true) {
             req.setAttribute("login", login);
             req.setAttribute("sessionUser", session.getAttribute("sessionUser"));
             req.getRequestDispatcher("SignIn.jsp").forward(req, resp);

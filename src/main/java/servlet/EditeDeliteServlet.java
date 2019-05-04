@@ -21,7 +21,7 @@ public class EditeDeliteServlet extends HttpServlet {
         List<User> list = userDao.getUsers();
 
         request.setAttribute("users", list);
-        request.getRequestDispatcher("EditeDelite.jsp").forward(request, response);
+        request.getRequestDispatcher("EditDelete.jsp").forward(request, response);
     }
 
 

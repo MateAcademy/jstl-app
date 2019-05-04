@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "Edit2Servlet", value = "/edit2")
-public class Edit2Servlet extends HttpServlet {
+@WebServlet(name = "ShowUsersAfterEdit", value = "/edit2")
+public class ShowUsersAfterEdit extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String login = request.getParameter("login");
@@ -23,6 +23,6 @@ public class Edit2Servlet extends HttpServlet {
         List<User> list = userDao.getUsers();
 
         request.setAttribute("users", list);
-        request.getRequestDispatcher("EditeDelite.jsp").forward(request, response);
+        request.getRequestDispatcher("EditDelete.jsp").forward(request, response);
     }
 }

@@ -26,6 +26,6 @@ public class DelServlet extends HttpServlet {
         List<User> list = userDao.getUsers();
 
         req.setAttribute("users", list);
-        req.getRequestDispatcher("EditeDelite.jsp").forward(req, resp);
+        req.getRequestDispatcher("EditDelete.jsp").forward(req, resp);
     }
 }
