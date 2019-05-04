@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDao {
+    Connection connection = DbConnector.connect();
 
     public void addUser(User user) {
-        Connection connnection = DbConnector.connect();
         try {
-            Statement statement = connnection.createStatement();
+            Statement statement = connection.createStatement();
             String sql = "INSERT INTO madb.users(name, password) VALUES ('" + user.getName() + "','" + user.getPassword() + "');";
             System.out.println(sql);
             statement.execute(sql);
@@ -24,22 +24,21 @@ public class UserDao {
     }
 
     public boolean getUser(User newUser) {
-        Connection connnection = DbConnector.connect();
         try {
-            Statement statement = connnection.createStatement();
+            Statement statement = connection.createStatement();
             String sql = "SELECT * FROM madb.users WHERE name='" + newUser.getName() + "' and password = '" + newUser.getPassword() + "';";
-            boolean rez = false;
+            boolean userInDatabase = false;
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
                 if (resultSet.getString("name").equals(newUser.getName()) & resultSet.getString("password").equals(newUser.getPassword())) {
-                    rez = true;
+                    userInDatabase = true;
                 }
 
             }
             System.out.println(sql);
-            System.out.println("Есть ли такой User в базе данных: " + rez);
-            return rez;
+            System.out.println("Есть ли такой User в базе данных: " + userInDatabase);
+            return userInDatabase;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -48,9 +47,8 @@ public class UserDao {
 
     public List<User> getUsers() {
         List<User> list = new ArrayList<>();
-        Connection connnection = DbConnector.connect();
         try {
-            Statement statement = connnection.createStatement();
+            Statement statement = connection.createStatement();
             String sql = "SELECT * FROM madb.users";
             ResultSet resultSet = statement.executeQuery(sql);
 
@@ -67,12 +65,10 @@ public class UserDao {
         return list;
     }
 
-
     public void delUser(User user) {
-        Connection connnection = DbConnector.connect();
         try {
             String query = "DELETE FROM madb.users WHERE name='" + user.getName()+"' and password = '"+user.getPassword()+"';";
-            Statement statement = connnection.createStatement();
+            Statement statement = connection.createStatement();
             statement.executeUpdate(query);
         }
         catch (SQLException e) {
@@ -81,17 +77,15 @@ public class UserDao {
     }
 
     public void editUser(String password, String name) {
-        Connection connnection = DbConnector.connect();
         try {
             String query = "UPDATE users SET password = '" + password + "' WHERE name='" + name + "';";
-            Statement statement = connnection.createStatement();
+            Statement statement = connection.createStatement();
             statement.executeUpdate(query);
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
 }
 
 
