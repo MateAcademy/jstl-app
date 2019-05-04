@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(value = "/hello3")
+@WebServlet(value = "/EditDeleteServlet")
 
-public class EditDeliteServlet extends HttpServlet {
+public class EditDeleteServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(value = "/hello2")
+@WebServlet(value = "/IdentificationServlet")
 public class JoinServlet extends HttpServlet {
 
     private static final UserDao userDao = new UserDao();

@@ -18,7 +18,7 @@
 
 <body style="background-image:url(girl.jpg) ">
 
-<form action="hello" method="post">
+<form action="RegistrationServlet" method="post">
     <h3> Пройдите регистрацию:</h3>
     <p>Имя: <input type="text" name="name" value=" Введите свое имя ">
         Пароль: <input type="text" name="password" value=" Введите пароль "></p>
@@ -27,7 +27,7 @@
 </form>
 
 <br>
-<form action="hello2" method="post">
+<form action="IdentificationServlet" method="post">
     <h3> Здесь Вы можете войти на сайт (для зарегистрированных пользователей):</h3>
     <p>Имя: <input type="text" name="name2" value=" Введите свое имя">
         Пароль: <input type="text" name="login2" value=" Введите здесь свой пароль"></p>
@@ -35,7 +35,7 @@
 </form>
 
 <br>
-<form action="hello3" method="post">
+<form action="EditDeleteServlet" method="post">
     <h3> Здесь Вы можете редактировать или удалять пользователей из БД:</h3>
     <input type="submit" value="Edit / Delete" class="b1">
 </form>

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(value = "/hello", loadOnStartup = 1) //при преходе на хелло срабатывает метод сервис
+@WebServlet(value = "/RegistrationServlet", loadOnStartup = 1) //при преходе на хелло срабатывает метод сервис
 public class RegisterServlet extends HttpServlet {
 
     private static final UserDao userDao = new UserDao();
