@@ -15,10 +15,10 @@
 
 <h3>Hello <c:out value="${name}"/> after registration <br>
     Ваш пароль: <c:out value="${login}"/> after registration :) <br>
-    Согласен ли ты с политикой обработки данных:   <c:out value="${agree}"/> <br>
-    Мой первый servlet, метод: "  <c:out value="${method}"/>  "<br>
-    session account:  <c:out value="${sessionUser}"/> <br>
-    servletContext usera:  <c:out value="${servletContext}"/>   <br>
+    Согласен ли ты с политикой обработки данных: <c:out value="${agree}"/> <br>
+    Мой первый servlet, метод: " <c:out value="${method}"/> "<br>
+    session account: <c:out value="${sessionUser}"/> <br>
+    servletContext usera: <c:out value="${servletContext}"/> <br>
 </h3>
 
 </body>

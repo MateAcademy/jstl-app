@@ -14,7 +14,7 @@
 <body style="background-image:url(girl.jpg);  color:#ff6c36; font-weight: normal">
 
 <h3>
-    "Неверный лог/пасс"
+    <c:out value="Неверный лог/пасс"/>
 </h3>
 
 </body>

@@ -21,7 +21,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "У нас есть пользователь:{" +
+        return "User:{" +
                 "имя='" + name + '\'' +
                 ", password='" + password + '\'' +
                 '}';

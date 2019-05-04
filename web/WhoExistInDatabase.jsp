@@ -13,8 +13,9 @@
 </head>
 <body style="background-image:url(girl.jpg); color:#ff6c36">
 
-        You already have account, just sign in <br>
-Твое имя пользователя уже есть в базе: <c:out value="${name}"/><br>
-И твой пароль тоже уже зарегистрирован : <c:out value="${login}"/><br>
+    You already have account, just sign in <br>
+    Твое имя пользователя уже есть в базе: <c:out value="${name}"/><br>
+    И твой пароль тоже уже зарегистрирован : <c:out value="${login}"/><br>
+
 </body>
 </html>
