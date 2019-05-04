@@ -16,16 +16,11 @@ public class DelServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserDao userDao = new UserDao();
         String name = req.getParameter("name");
-        System.out.println();
-        System.out.println(name);
-
         String password = req.getParameter("password");
-        System.out.println(password);
 
+        UserDao userDao = new UserDao();
         User user = new User(name, password);
-
         userDao.delUser(user);
 
         List<User> list = userDao.getUsers();

@@ -30,9 +30,7 @@ public class JoinServlet extends HttpServlet {
         User user = new User(firstName, login);
 
         boolean rez = userDao.getUser(user);
-//        Registration registration = new Registration();
-//        registration.getList();
-//        boolean rez = registration.checkUser(user);
+
         System.out.println("Это проверка, есть ли такой пользователь в базе данных: " + rez);
         System.out.println();
         if (rez == true) {
