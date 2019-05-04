@@ -2,7 +2,6 @@ package servlet;
 
 import dao.UserDao;
 import model.User;
-import model.Registration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -28,7 +27,7 @@ public class RegisterServlet extends HttpServlet {
         String password = req.getParameter("password");
 
         User newUser = new User(name, password);
-        boolean reg = Registration.checkUser(newUser);
+        boolean reg = userDao.getUser(newUser);
 
         if (reg) {
             exist(req, resp, name, password);
@@ -45,7 +44,6 @@ public class RegisterServlet extends HttpServlet {
     }
 
     public void registry(HttpServletRequest req, HttpServletResponse resp, String name, String password, User newUser) throws ServletException, IOException {
-        Registration registration = new Registration();
 
         HttpSession session = req.getSession();
         ServletContext servletContext = req.getServletContext();
@@ -56,8 +54,6 @@ public class RegisterServlet extends HttpServlet {
             session.setAttribute("sessionUser", name);
             servletContext.setAttribute("name", name);
         }
-
-        registration.addNewUsers(newUser);
 
         resp.setStatus(HttpServletResponse.SC_OK);
 
@@ -76,7 +72,6 @@ public class RegisterServlet extends HttpServlet {
         req.getRequestDispatcher("Register.jsp").forward(req, resp);
 
         session.setMaxInactiveInterval(60);
-        registration.getList();
         System.out.println();
     }
 

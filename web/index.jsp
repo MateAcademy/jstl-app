@@ -34,7 +34,11 @@
   <input type="submit" value="Войти" class="b1">
 </form>
 
-
+<br>
+<form action="hello3" method="post">
+  <h3> Здесь Вы можете редактировать или удалять пользователей из БД:</h3>
+  <input type="submit" value="Edit / Delete" class="b1">
+</form>
 
 </body>
 </html>

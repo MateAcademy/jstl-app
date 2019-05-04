@@ -1,9 +1,8 @@
 package servlet;
 
+import dao.UserDao;
 import model.User;
-import model.Registration;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +14,7 @@ import java.io.IOException;
 @WebServlet(value = "/hello2")
 public class JoinServlet extends HttpServlet {
 
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        System.out.println("Servlet initialized");
-    }
+    private static final UserDao userDao = new UserDao();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,9 +28,11 @@ public class JoinServlet extends HttpServlet {
         System.out.println("мы заходим на сайт под именем:  " + firstName + " и паролем:  " + login);
 
         User user = new User(firstName, login);
-        Registration registration = new Registration();
-        registration.getList();
-        boolean rez = registration.checkUser(user);
+
+        boolean rez = userDao.getUser(user);
+//        Registration registration = new Registration();
+//        registration.getList();
+//        boolean rez = registration.checkUser(user);
         System.out.println("Это проверка, есть ли такой пользователь в базе данных: " + rez);
         System.out.println();
         if (rez == true) {
