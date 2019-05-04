@@ -25,7 +25,7 @@
             <th>Edit</th>
 
         </tr>
-        <tr><form action="edit2">
+        <tr><form action="ShowUsersAfterEdit">
             <th><input type="text" name="login" value= "${name}" disabled  /></th>
             <th><input type="text" name="login" value= "${name}" hidden="false" /></th>
             <th><input type="text" name="password" value=" Введите новый пароль "></th>

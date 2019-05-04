@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AllUsersServlet")
-public class AllUsersServlet extends HttpServlet {
+@WebServlet(name = "ShowAllUsersServlet")
+public class ShowAllUsersServlet extends HttpServlet {
 
     private static final UserDao userDao = new UserDao();
 

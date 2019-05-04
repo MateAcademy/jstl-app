@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ShowUsersAfterEdit", value = "/edit2")
-public class ShowUsersAfterEdit extends HttpServlet {
+@WebServlet(name = "ShowUsersAfterEditServlet", value = "/ShowUsersAfterEdit")
+public class ShowUsersAfterEditServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String login = request.getParameter("login");
